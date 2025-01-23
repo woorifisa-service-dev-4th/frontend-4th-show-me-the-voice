@@ -1,5 +1,5 @@
 import { Heart } from "lucide-react";
-import DropdownMenuDemo from "@/app/components/Dropdown";
+import DropdownMenuDemo from "@/app/ui/Dropdown";
 
 export default function Card({username,content, likes}) {
     return (
