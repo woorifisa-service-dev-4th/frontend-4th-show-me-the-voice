@@ -1,6 +1,6 @@
 import { Heart } from "lucide-react";
 
-export default function Page() {
+export default function Card() {
     return (
             <div className="bg-white p-4 rounded-lg shadow mb-4">
                 <h2 className="font-bold mb-2">김철수</h2>
