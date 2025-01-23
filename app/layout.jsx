@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="ko">
       <body className={inter.className}>
         <div className="flex items-center justify-center min-h-screen bg-beige">
-          <div className="w-full h-full max-w-[375px] max-h-[812px] bg-white overflow-y-auto shadow-lg">
+          <div className="w-full h-full max-w-[475px]  min-w-[375px] max-h-[812px] bg-white overflow-y-auto shadow-lg">
             {children}
           </div>
         </div>
