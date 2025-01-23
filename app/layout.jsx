@@ -12,8 +12,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <div className="flex items-center justify-center min-h-screen bg-beige">
-          <div className="w-full h-full max-w-[375px] max-h-[812px] bg-white overflow-y-auto shadow-lg">
+        <div className="flex items-center justify-center h-screen bg-beige overflow-hidden">
+          <div className="w-full h-full max-w-[375px] max-h-[812px] bg-white overflow-hidden shadow-lg">
             {children}
           </div>
         </div>
