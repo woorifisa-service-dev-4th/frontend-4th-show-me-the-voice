@@ -1,9 +1,9 @@
-import { Button } from "./Button";
 import { useState } from "react";
-import { Input } from "./Input";
+import { PinInput } from "./PinInput";
 
 export function ContentForm() {
   // 상태 정의 (입장 코드와 입력값 상태)
+  const [value, setValue] = useState(["", "", "", ""]);
   const [entryCode, setEntryCode] = useState("");
   const [errorMessage, setErrorMessage] = useState(""); // 오류 메시지 상태
 
@@ -21,19 +21,23 @@ export function ContentForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {/* 가로로 배치하기 위해 flex 사용 */}
-      <div className="flex items-center justify-center min-h-screen">
-        {/* 입장 코드 입력 필드 */}
-        <Input
-          type="text"
-          placeholder="입장 코드"
-          className="w-full max-w-md border border-gray-300 rounded-md px-3 py-2"
-        />
-      </div>
+    <>
+      <form onSubmit={handleSubmit}>
+        {/* 가로로 배치하기 위해 flex 사용 */}
 
-      {/* 오류 메시지 표시 */}
-      {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
-    </form>
+        <div className="flex items-center justify-center">
+          {" "}
+          <PinInput
+            variant="filled"
+            size="lg"
+            value={value}
+            onValueChange={(e) => setValue(e.value)}
+          />
+        </div>
+
+        {/* 오류 메시지 표시 */}
+        {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
+      </form>
+    </>
   );
 }

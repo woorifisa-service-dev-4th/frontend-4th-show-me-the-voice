@@ -1,9 +1,9 @@
 export function Toggle({ isOn, onToggle }) {
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center justify-center m-[10px]">
       <button
         className={`w-10 h-5 rounded-full ${
-          isOn ? "bg-green-500" : "bg-gray-400"
+          isOn ? "bg-secondary" : "bg-gray-400"
         }`}
         onClick={onToggle}
       >
