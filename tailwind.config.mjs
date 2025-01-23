@@ -7,9 +7,14 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Noto Sans KR', 'sans-serif'],
+        serif: ['Noto Serif KR', 'serif'],
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        main_color: 'rgb(0, 103, 172)',
+        sub_color: 'rgb(32, 96, 244)',
+        button_color: 'rgb(0, 120, 185)',
       },
     },
   },
