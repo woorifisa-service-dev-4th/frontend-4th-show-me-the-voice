@@ -20,6 +20,30 @@ export default function Home() {
                     likes={32}
                     comments={12}
                 />
+                  <Card
+                    username="박지민"
+                    content="주말에 가족들과 함께 등산 다녀왔어요. 정말 좋은 시간이었습니다."
+                    likes={32}
+                    comments={12}
+                />
+                 <Card
+                    username="박지민"
+                    content="주말에 가족들과 함께 등산 다녀왔어요. 정말 좋은 시간이었습니다."
+                    likes={32}
+                    comments={12}
+                />
+                 <Card
+                    username="박지민"
+                    content="주말에 가족들과 함께 등산 다녀왔어요. 정말 좋은 시간이었습니다."
+                    likes={32}
+                    comments={12}
+                />
+                 <Card
+                    username="박지민"
+                    content="주말에 가족들과 함께 등산 다녀왔어요. 정말 좋은 시간이었습니다."
+                    likes={32}
+                    comments={12}
+                />
             </div>
         </main>
     )
