@@ -4,6 +4,7 @@ import { useSwipeable } from "react-swipeable"; // 스와이프 기능 추가
 import LoginForm from "./ui/landing/LoginForm";
 import PasscodeForm from "./ui/landing/PasscodeForm";
 import Modal from "./ui/Modal";
+import Datepicker from "tailwind-datepicker-react";
 
 export default function Home() {
   const [isLogin, setIsLogin] = useState(true);
