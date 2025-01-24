@@ -2,7 +2,6 @@ import React from 'react';
 import SelectDemo from './Select';
 
 
-
 export default function SubHeader({ selectOptions }) {
 
   const optionsArray = Object.entries(selectOptions).map(([value, label]) => ({
@@ -11,8 +10,6 @@ export default function SubHeader({ selectOptions }) {
   }));
 
   const defaultValue = optionsArray[0].value;
-  console.log(defaultValue);
-
   return (
     <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 bg-white">
       <div className="flex items-center space-x-2">
@@ -60,11 +57,7 @@ export default function SubHeader({ selectOptions }) {
 
       <div>
         <SelectDemo defaultValue= {defaultValue}>
-          {optionsArray.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
+          {selectOptions}
         </SelectDemo>
       </div>
     </div>
