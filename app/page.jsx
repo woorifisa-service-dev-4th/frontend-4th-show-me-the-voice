@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useSwipeable } from "react-swipeable"; // 스와이프 기능 추가
 import LoginForm from "./ui/landing/LoginForm";
 import PasscodeForm from "./ui/landing/PasscodeForm";
+import Modal from "./ui/Modal";
 
 export default function Home() {
   const [isLogin, setIsLogin] = useState(true);
@@ -20,6 +21,7 @@ export default function Home() {
       {...handlers} // 스와이프 이벤트 바인딩
       className="min-h-screen flex flex-col items-center justify-center pt-20 bg-gradient-to-r from-blue-200 via-blue-300 to-blue-400"
     >
+      <div></div>
       <main className="flex flex-col items-center space-y-10">
         <div className="absolute top-10 left-0 right-0 p-4 text-center">
           <h1 className="text-3xl font-bold text-white">Slido</h1>
