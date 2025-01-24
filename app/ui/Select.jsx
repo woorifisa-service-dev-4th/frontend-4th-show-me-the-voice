@@ -7,8 +7,10 @@ import {
     ChevronUpIcon,
 } from "@radix-ui/react-icons";
 
-const SelectDemo = () => (
-    <Select.Root>
+const SelectDemo = ({children, defaultValue}) => {
+
+    return (    
+    <Select.Root defaultValue={defaultValue} onValueChange={(e) => console.log(e)}>
         <Select.Trigger
             className="inline-flex h-[35px] items-center justify-center gap-[5px] rounded bg-white px-[15px] text-[13px] leading-none text-violet11 shadow-[0_2px_10px] shadow-black/10 outline-none hover:bg-mauve3 focus:shadow-[0_0_0_2px] focus:shadow-black data-[placeholder]:text-violet9"
             aria-label="Food"
@@ -25,12 +27,10 @@ const SelectDemo = () => (
                 </Select.ScrollUpButton>
                 <Select.Viewport className="p-[5px]">
                     <Select.Group>
-                        <Select.Label className="px-[25px] text-xs leading-[25px] text-mauve11">
+                        {/* <Select.Label className="px-[25px] text-xs leading-[25px] text-mauve11">
                         Options
-                        </Select.Label>
-
-                        <SelectItem value="popular">Popular</SelectItem>
-                        <SelectItem value="recent">Recent</SelectItem>
+                        </Select.Label> */}
+                        {Object.entries(children).map(item => <SelectItem key={item[0]} value={item[0]}>{item[1]}</SelectItem>)}
                     </Select.Group>
                 </Select.Viewport>
                 <Select.ScrollDownButton className="flex h-[25px] cursor-default items-center justify-center bg-white text-violet11">
@@ -39,7 +39,10 @@ const SelectDemo = () => (
             </Select.Content>
         </Select.Portal>
     </Select.Root>
-);
+)}
+
+
+
 
 const SelectItem = React.forwardRef(
     ({ children, className, ...props }, forwardedRef) => {
