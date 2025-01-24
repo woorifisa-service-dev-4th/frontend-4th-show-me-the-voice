@@ -12,17 +12,16 @@ export default {
     content: ["./App.jsx"],
     extend: {
       fontFamily: {
-        sans: ['Noto Sans KR', 'sans-serif'],
-        serif: ['Noto Serif KR', 'serif'],
+        sans: ["Noto Sans KR", "sans-serif"],
+        serif: ["Noto Serif KR", "serif"],
       },
       colors: {
-        main_color: 'rgb(0, 103, 172)',
-        sub_color: 'rgb(32, 96, 244)',
-        button_color: 'rgb(0, 120, 185)',
+        main_color: "rgb(0, 103, 172)",
+        sub_color: "rgb(32, 96, 244)",
+        button_color: "rgb(0, 120, 185)",
         ...blackA,
         ...mauve,
         ...violet,
-
       },
       keyframes: {
         slideDownAndFade: {
@@ -44,14 +43,14 @@ export default {
       },
       animation: {
         slideDownAndFade:
-            "slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+          "slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideLeftAndFade:
-            "slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+          "slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideUpAndFade: "slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideRightAndFade:
-            "slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+          "slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
