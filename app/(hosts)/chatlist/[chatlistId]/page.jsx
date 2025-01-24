@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Card from "@/app/ui/Card";
 import DropdownMenuDemo from "@/app/ui/Dropdown";
-import {Select} from "@radix-ui/react-select"
+import { Select } from "@radix-ui/react-select";
 import SelectDemo from "@/app/ui/Select";
 import { SkeletonLoader } from "@/app/ui/skeletons";
 import { fetchHostChatData } from "../../testdata";
