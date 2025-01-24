@@ -24,6 +24,7 @@ const SkeletonLoader = () => {
 };
 
 export default function Layout() {
+    const selectOptions = { popular: 'Popular', recent: 'Recent'};
     return (
         <div className="min-h-screen bg-gray-100">
             {/* Header Section */}
@@ -35,7 +36,7 @@ export default function Layout() {
 
                 {/* Center Sorting Options */}
                 <div className="flex items-center space-x-2">
-                    <SelectDemo />
+                    <SelectDemo defaultValue={'popular'}>{selectOptions}</SelectDemo>
                 </div>
 
                 {/* Question Count */}
