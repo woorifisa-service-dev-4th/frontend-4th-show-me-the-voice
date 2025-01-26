@@ -1,0 +1,85 @@
+[
+  {
+    "id": 1,
+    "username": "user1",
+    "content": "Next.js에서 서버 사이드 렌더링(SSR)을 어떻게 구현하나요?",
+    "likes": 30,
+    "created_date": "2025-01-26T09:00:00Z",
+    "is_pinned": true,
+    "pinned_order": 1
+  },
+  {
+    "id": 2,
+    "username": "user2",
+    "content": "Next.js에서 API 라우트를 설정하는 방법은 무엇인가요?",
+    "likes": 25,
+    "created_date": "2025-01-25T15:30:00Z",
+    "is_pinned": true,
+    "pinned_order": 2
+  },
+  {
+    "id": 3,
+    "username": "user3",
+    "content": "getServerSideProps와 getStaticProps의 차이점은 무엇인가요?",
+    "likes": 20,
+    "created_date": "2025-01-24T12:00:00Z",
+    "is_pinned": true,
+    "pinned_order": 3
+  },
+  {
+    "id": 4,
+    "username": "user4",
+    "content": "Next.js에서 동적 라우팅을 설정하는 방법이 궁금합니다.",
+    "likes": 18,
+    "created_date": "2025-01-26T11:30:00Z",
+    "is_pinned": false
+  },
+  {
+    "id": 5,
+    "username": "user5",
+    "content": "Next.js 프로젝트에 Tailwind CSS를 통합하는 방법은 무엇인가요?",
+    "likes": 10,
+    "created_date": "2025-01-26T12:15:00Z",
+    "is_pinned": false
+  },
+  {
+    "id": 6,
+    "username": "user6",
+    "content": "Next.js에서 이미지 최적화(Image Optimization)를 구현하는 방법을 알려주세요.",
+    "likes": 12,
+    "created_date": "2025-01-25T14:00:00Z",
+    "is_pinned": false
+  },
+  {
+    "id": 7,
+    "username": "user7",
+    "content": "Next.js에서 페이지 간 상태 관리는 어떻게 해야 할까요?",
+    "likes": 5,
+    "created_date": "2025-01-23T10:45:00Z",
+    "is_pinned": false
+  },
+  {
+    "id": 8,
+    "username": "user8",
+    "content": "Next.js의 미들웨어 기능을 사용하여 인증(Authentication)을 구현할 수 있나요?",
+    "likes": 15,
+    "created_date": "2025-01-22T09:30:00Z",
+    "is_pinned": false
+  },
+  {
+    "id": 9,
+    "username": "user9",
+    "content": "Next.js에서의 정적 사이트 생성(SSG)과 서버 사이드 렌더링(SSR)의 장단점은 무엇인가요?",
+    "likes": 22,
+    "created_date": "2025-01-21T08:00:00Z",
+    "is_pinned": false
+  },
+  {
+    "id": 10,
+    "username": "user10",
+    "content": "Next.js 13에서 'app' 디렉토리를 사용하는 장점은 무엇인가요?",
+    "likes": 28,
+    "created_date": "2025-01-20T17:00:00Z",
+    "is_pinned": false
+  }
+]
