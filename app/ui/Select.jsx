@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import * as Select from "@radix-ui/react-select";
 import classnames from "classnames";
@@ -9,13 +11,15 @@ import {
 
 const SelectDemo = ({children, defaultValue}) => {
 
-    return (    
-    <Select.Root defaultValue={defaultValue} onValueChange={(e) => console.log(e)}>
+    const [value, setValue] = React.useState(defaultValue);
+
+    return (
+    <Select.Root defaultValue={value} onValueChange={(v) => setValue(v)}>
         <Select.Trigger
             className="inline-flex h-[35px] items-center justify-center gap-[5px] rounded bg-white px-[15px] text-[13px] leading-none text-violet11 shadow-[0_2px_10px] shadow-black/10 outline-none hover:bg-mauve3 focus:shadow-[0_0_0_2px] focus:shadow-black data-[placeholder]:text-violet9"
             aria-label="Food"
         >
-            <Select.Value placeholder="Sort" ></Select.Value>
+            <Select.Value ></Select.Value>
             <Select.Icon className="text-violet11">
                 <ChevronDownIcon />
             </Select.Icon>

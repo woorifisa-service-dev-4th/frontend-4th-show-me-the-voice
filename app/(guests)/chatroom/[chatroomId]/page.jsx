@@ -14,9 +14,9 @@ const ChatRoomPage = () => {
             { guestId: 3, nickname: 'Anonymous3', content: 'there!',  likes: 1 },
             { guestId: 4, nickname: 'Anonymous4', content: 'ere!',  likes: 1 },
             { guestId: 5, nickname: 'Anonymous5', content: 're!',  likes: 1 },
-            { guestId: 5, nickname: 'Anonymous6', content: 're!',  likes: 1 },
-            { guestId: 5, nickname: 'Anonymous7', content: 're!',  likes: 1 },
-            { guestId: 5, nickname: 'Anonymous8', content: 're!',  likes: 1 },
+            { guestId: 6, nickname: 'Anonymous6', content: 're!',  likes: 1 },
+            { guestId: 7, nickname: 'Anonymous7', content: 're!',  likes: 1 },
+            { guestId: 8, nickname: 'Anonymous8', content: 're!',  likes: 1 },
 
         ],
     };
