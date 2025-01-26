@@ -22,7 +22,7 @@ server.use((req, res, next) => {
 });
 
 // 핀, 정렬, 필터링 커스텀 엔드포인트
-server.get("/products/sorted", (req, res) => {
+server.get("/chats/sorted", (req, res) => {
     const dbFilePath = path.join(__dirname, "data.json");
     const db = JSON.parse(fs.readFileSync(dbFilePath, "utf-8"));
 

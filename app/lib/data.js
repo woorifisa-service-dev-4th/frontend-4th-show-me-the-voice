@@ -7,3 +7,15 @@ export async function fetchCards() {
     }
     return res.json(); // JSON 데이터를 반환
 }
+
+export async function deleteCard(id) {
+    const res = await fetch(`http://localhost:3001/chats/${id}`, {
+        method: "DELETE", // DELETE 메서드를 사용하여 삭제 요청
+    });
+
+    if (!res.ok) {
+        throw new Error("Failed to delete card");
+    }
+
+    return { success: true, id }; // 성공적으로 삭제된 경우 ID 반환
+}
