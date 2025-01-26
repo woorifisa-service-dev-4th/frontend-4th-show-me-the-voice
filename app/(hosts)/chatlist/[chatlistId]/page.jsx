@@ -5,6 +5,7 @@ import { Select } from "@radix-ui/react-select";
 import SelectDemo from "@/app/ui/Select";
 import { SkeletonLoader } from "@/app/ui/skeletons";
 import { fetchHostChatData } from "../../testdata";
+import CardWrapper from "@/app/ui/Cards";
 
 
 export default async function Page() {
@@ -12,10 +13,7 @@ export default async function Page() {
     const cards = fetchHostChatData();
     return (
         <Suspense fallback={<SkeletonLoader />}>
-            {cards.map((card) => (
-                <Card key={card.id} content={card.content} username={card.username} likes={0}>
-                </Card>
-            ))}
+           <CardWrapper/>
         </Suspense>
     );
 }

@@ -1,7 +1,7 @@
 import { Heart } from "lucide-react";
 import DropdownMenuDemo from "@/app/ui/Dropdown";
 
-export default function Card({username,content, likes}) {
+export default function Card({id,username,content, likes}) {
     return (
             <div className="bg-white p-4 rounded-lg shadow mb-4">
                 <div className={"flex justify-between"}>
