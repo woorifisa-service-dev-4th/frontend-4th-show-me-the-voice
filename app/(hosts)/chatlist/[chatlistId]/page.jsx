@@ -5,7 +5,7 @@ import { Select } from "@radix-ui/react-select";
 import SelectDemo from "@/app/ui/Select";
 import { SkeletonLoader } from "@/app/ui/skeletons";
 import { fetchHostChatData } from "../../testdata";
-import CardWrapper from "@/app/ui/Cards";
+import {CardWrapper} from "@/app/ui/Cards";
 
 
 export default async function Page() {

@@ -1,5 +1,6 @@
 import Card from "@/app/ui/Card";
-import fetchCards from "@/app/lib/data"
+import {fetchCards} from "@/app/lib/data"
+
 export  async function CardWrapper() {
     const cards = await fetchCards();
     return (
