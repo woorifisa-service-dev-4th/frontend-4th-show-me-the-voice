@@ -1,28 +1,15 @@
 'use client';
 import React from "react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { useRouter } from "next/navigation";
-import {deleteCard} from "@/app/lib/data";
-
+import {deleteAction} from '@/app/lib/action'
+import {useRouter} from "next/navigation";
 import {
     HamburgerMenuIcon,
-    DotFilledIcon,
-    CheckIcon,
-    ChevronRightIcon,
 } from "@radix-ui/react-icons";
+import {deleteCard} from "@/app/lib/data";
 
 export const DropdownMenuDemo = ({id}) => {
     const router = useRouter();
-    const Delete = async () => {
-        try {
-            await deleteCard(id); // 서버에서 삭제 작업 수행
-            router.refresh(); // 현재 페이지 새로고침 (데이터 다시 로드)
-        } catch (error) {
-            console.error("Failed to delete card:", error);
-        }
-    };
-
-
     return (
         <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
@@ -38,21 +25,7 @@ export const DropdownMenuDemo = ({id}) => {
                 <DropdownMenu.Content
                     className="min-w-[150px] rounded-md bg-white p-[5px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade data-[side=right]:animate-slideLeftAndFade data-[side=top]:animate-slideDownAndFade"
                     sideOffset={5}>
-                    {/*<DropdownMenu.Item
-                        onSelect={()=> {console.log('this is clicked');}}
-                        className="group relative flex h-[25px] select-none items-center rounded-[3px] pl-[25px] pr-[5px] text-[13px] leading-none text-violet11 outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[disabled]:text-mauve8 data-[highlighted]:text-violet1">
 
-                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M11.8536 1.14645C11.6583 0.951184 11.3417 0.951184 11.1465 1.14645L3.71455 8.57836C3.62459 8.66832 3.55263 8.77461 3.50251 8.89155L2.04044 12.303C1.9599 12.491 2.00189 12.709 2.14646 12.8536C2.29103 12.9981 2.50905 13.0401 2.69697 12.9596L6.10847 11.4975C6.2254 11.4474 6.3317 11.3754 6.42166 11.2855L13.8536 3.85355C14.0488 3.65829 14.0488 3.34171 13.8536 3.14645L11.8536 1.14645ZM4.42166 9.28547L11.5 2.20711L12.7929 3.5L5.71455 10.5784L4.21924 11.2192L3.78081 10.7808L4.42166 9.28547Z"
-                                fill="currentColor"></path>
-                        </svg>
-                        &nbsp; &nbsp;
-                        Edit{" "}
-
-
-                    </DropdownMenu.Item>*/}
                     <DropdownMenu.Item
                         className="group relative flex h-[25px] select-none items-center rounded-[3px] pl-[25px] pr-[5px] text-[13px] leading-none text-violet11 outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[disabled]:text-mauve8 data-[highlighted]:text-violet1">
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -67,7 +40,10 @@ export const DropdownMenuDemo = ({id}) => {
                         Pin{" "}
                     </DropdownMenu.Item>
                     <DropdownMenu.Item
-                        onSelect={Delete}
+                        onSelect={() => {
+                            deleteAction(id);
+                            router.refresh(); // 현재 페이지 새로고침 (데이터 다시 로드)
+                        }}
                         className="group relative flex h-[25px] select-none items-center rounded-[3px] pl-[25px] pr-[5px] text-[13px] leading-none text-violet11 outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[disabled]:text-mauve8 data-[highlighted]:text-violet1">
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
