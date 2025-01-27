@@ -7,7 +7,14 @@ export async function fetchCards() {
     }
     return res.json(); // JSON 데이터를 반환
 }
-
+export async function getCardsByOrderOption(options){
+    const order= (options === 'popular')?'desc':'asc';
+    const res = await fetch(`http://localhost:3001/chats?_sort=is_pinned,pinned_order,${options}&_order=desc,asc,${order}`);
+    if (!res.ok) {
+        throw new Error("Failed to fetch data");
+    }
+    return res.json(); // JSON 데이터를 반환
+}
 export async function deleteCard(id) {
     const res = await fetch(`http://localhost:3001/chats/${id}`, {
         method: "DELETE", // DELETE 메서드를 사용하여 삭제 요청

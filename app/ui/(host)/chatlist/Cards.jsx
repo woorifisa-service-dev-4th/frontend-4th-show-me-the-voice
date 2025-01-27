@@ -1,8 +1,8 @@
 import Card from "@/app/ui/Card";
-import {fetchCards} from "@/app/lib/data"
+import {fetchCards, getCardsByOrderOption} from "@/app/lib/data"
 
 export  async function CardWrapper() {
-    const cards = await fetchCards();
+    const cards = await getCardsByOrderOption('popular');
     return (
         <div>
             {cards.map((card) => (

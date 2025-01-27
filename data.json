@@ -2,11 +2,11 @@
   "chats": [
     {
       "id": 9,
-      "username": "user9",
+      "username": "isPinned",
       "content": "Next.js에서의 정적 사이트 생성(SSG)과 서버 사이드 렌더링(SSR)의 장단점은 무엇인가요?",
       "likes": 23,
       "created_date": "2025-01-21T08:00:00Z",
-      "is_pinned": false,
+      "is_pinned": true,
       "pinned_order": 0
     },
     {
@@ -20,18 +20,18 @@
     },
     {
       "id": 1,
-      "username": "user10",
+      "username": "isPinned",
       "content": "Next.js 13에서 'app' 디렉토리를 사용하는 장점은 무엇인가요?",
       "likes": 28,
       "created_date": "2025-01-20T17:00:00Z",
-      "is_pinned": false,
+      "is_pinned": true,
       "pinned_order": 0
     },
     {
       "id": 2,
       "username": "user10",
       "content": "Next.js 13에서 'app' 디렉토리를 사용하는 장점은 무엇인가요?",
-      "likes": 29,
+      "likes": 30,
       "created_date": "2025-01-20T17:00:00Z",
       "is_pinned": false,
       "pinned_order": 0
@@ -40,7 +40,7 @@
       "id": 3,
       "username": "user10",
       "content": "Next.js 13에서 'app' 디렉토리를 사용하는 장점은 무엇인가요?",
-      "likes": 28,
+      "likes": 29,
       "created_date": "2025-01-20T17:00:00Z",
       "is_pinned": false,
       "pinned_order": 0
