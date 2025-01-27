@@ -1,5 +1,5 @@
 import React from 'react';
-import SelectDemo from './Select';
+import SelectDemo from './(host)/chatlist/Select';
 
 
 export default function SubHeader({ selectOptions }) {

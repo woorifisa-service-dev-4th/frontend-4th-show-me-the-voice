@@ -1,5 +1,5 @@
-import { Heart } from "lucide-react";
-import DropdownMenuDemo from "@/app/ui/Dropdown";
+import DropdownMenuDemo from "@/app/ui/(host)/chatlist/Dropdown";
+import LikeButton from "@/app/ui/(host)/chatlist/Likes";
 
 export default function Card({id,username,content, likes}) {
     return (
@@ -11,9 +11,7 @@ export default function Card({id,username,content, likes}) {
 
                 <p className="mb-4">{content}</p>
                 <div className="flex justify-end text-gray-500">
-                    <button className="flex items-center">
-                        <Heart size={20} className="mr-1" /> {likes}
-                    </button>
+                    <LikeButton id={id} initialLikes={likes} />
                 </div>
             </div>
         );

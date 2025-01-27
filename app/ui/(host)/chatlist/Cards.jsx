@@ -6,7 +6,7 @@ export  async function CardWrapper() {
     return (
         <div>
             {cards.map((card) => (
-                <Card key={card.id} id={card.id} content={card.content} username={card.username} likes={0}>
+                <Card key={card.id} id={card.id} content={card.content} username={card.username} likes={card.likes}>
                 </Card>
             ))}
         </div>

@@ -17,5 +17,29 @@ export async function deleteCard(id) {
         throw new Error("Failed to delete card");
     }
 
-    return { success: true, id }; // 성공적으로 삭제된 경우 ID 반환
+    return {success: true, id}; // 성공적으로 삭제된 경우 ID 반환
 }
+
+//id를 입력받고 좋아요수를 하나 늘려주는 함수.
+export async function getCardById(id) {
+    const response = await fetch(`http://localhost:3001/chats/${id}`);
+    if (!response.ok) {
+        throw new Error("Failed to delete card");
+    }
+    return response.json();
+}
+
+export async function patchLikes (id,updatedLikes) {
+    try {
+        // 좋아요 수를 서버에 업데이트
+        await fetch(`http://localhost:3001/chats/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({likes: updatedLikes}),
+        });
+    } catch (error) {
+        console.error("Failed to toggle like:", error);
+    }
+};
