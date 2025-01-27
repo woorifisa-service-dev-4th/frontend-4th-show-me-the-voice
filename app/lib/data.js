@@ -50,3 +50,17 @@ export async function patchLikes (id,updatedLikes) {
         console.error("Failed to toggle like:", error);
     }
 };
+
+export async function patchPin(id,updatedPin) {
+   try{
+       await fetch(`http://localhost:3001/chats/${id}`, {
+           method:'PATCH',
+           headers: {
+               'Content-Type': 'application/json',
+           },
+           body: JSON.stringify(updatedPin),
+       })
+   }catch (error) {
+       console.error('Error updating pin status:', error);
+   }
+}

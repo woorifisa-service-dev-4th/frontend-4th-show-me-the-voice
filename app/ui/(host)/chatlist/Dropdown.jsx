@@ -1,12 +1,11 @@
 'use client';
 import React from "react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import {deleteAction} from '@/app/lib/action'
+import {deleteAction, pinAction} from '@/app/lib/action'
 import {useRouter} from "next/navigation";
 import {
     HamburgerMenuIcon,
 } from "@radix-ui/react-icons";
-import {deleteCard} from "@/app/lib/data";
 
 export const DropdownMenuDemo = ({id}) => {
     const router = useRouter();
@@ -27,6 +26,10 @@ export const DropdownMenuDemo = ({id}) => {
                     sideOffset={5}>
 
                     <DropdownMenu.Item
+                        onSelect={()=>{
+                            pinAction(id);
+                            router.refresh();
+                        }}
                         className="group relative flex h-[25px] select-none items-center rounded-[3px] pl-[25px] pr-[5px] text-[13px] leading-none text-violet11 outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[disabled]:text-mauve8 data-[highlighted]:text-violet1">
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -42,7 +45,7 @@ export const DropdownMenuDemo = ({id}) => {
                     <DropdownMenu.Item
                         onSelect={() => {
                             deleteAction(id);
-                            router.refresh(); // 현재 페이지 새로고침 (데이터 다시 로드)
+                            router.refresh();
                         }}
                         className="group relative flex h-[25px] select-none items-center rounded-[3px] pl-[25px] pr-[5px] text-[13px] leading-none text-violet11 outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[disabled]:text-mauve8 data-[highlighted]:text-violet1">
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
