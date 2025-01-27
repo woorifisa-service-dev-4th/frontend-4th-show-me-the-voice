@@ -7,7 +7,6 @@ export default function Page() {
     return (
         <>
             <ChatListHeader/>
-            &nbsp;
             <Suspense fallback={<SkeletonLoader/>}>
                 <CardWrapper/>
             </Suspense>
