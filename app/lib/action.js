@@ -23,5 +23,4 @@ export const pinAction = async (id) =>{
     };
     // 3. JSON 서버에 PATCH 요청으로 업데이트
     await patchPin(id, updatedData);
-
 }
