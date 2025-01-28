@@ -1,21 +1,15 @@
-import { Suspense } from "react";
-import Card from "@/app/ui/Card";
-import DropdownMenuDemo from "@/app/ui/Dropdown";
-import { Select } from "@radix-ui/react-select";
-import SelectDemo from "@/app/ui/Select";
-import { SkeletonLoader } from "@/app/ui/skeletons";
-import { fetchHostChatData } from "../../testdata";
+import React, {Suspense} from "react";
+import {SkeletonLoader} from "@/app/ui/skeletons";
+import {CardWrapper} from "@/app/ui/(host)/chatlist/Cards";
+import {ChatListHeader} from "@/app/ui/(host)/chatlist/Header";
 
-
-export default async function Page() {
-    const selectOptions = { popular: 'Popular', recent: 'Recent' };
-    const cards = fetchHostChatData();
+export default function Page() {
     return (
-        <Suspense fallback={<SkeletonLoader />}>
-            {cards.map((card) => (
-                <Card key={card.id} content={card.content} username={card.username} likes={0}>
-                </Card>
-            ))}
-        </Suspense>
+        <>
+            <ChatListHeader/>
+            <Suspense fallback={<SkeletonLoader/>}>
+                <CardWrapper/>
+            </Suspense>
+        </>
     );
 }
