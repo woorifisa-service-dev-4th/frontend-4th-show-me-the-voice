@@ -7,13 +7,21 @@ export async function fetchCards() {
     }
     return res.json(); // JSON 데이터를 반환
 }
-export async function getCardsByOrderOption(options){
+export async function getCardsByOrderOption(options, query){
     const order= (options === 'popular')?'desc':'asc';
     const res = await fetch(`http://localhost:3001/chats?_sort=is_pinned,pinned_order,${options}&_order=desc,asc,${order}`);
     if (!res.ok) {
         throw new Error("Failed to fetch data");
     }
-    return res.json(); // JSON 데이터를 반환
+
+    const data = await res.json();
+
+    if( query) {
+        return data.filter((card) => 
+            card.content.toLowerCase().includes(query.toLowerCase())
+        );
+    }
+    return data; // query 없으면 정렬된 전체 데이터 반환
 }
 export async function deleteCard(id) {
     const res = await fetch(`http://localhost:3001/chats/${id}`, {
@@ -64,3 +72,24 @@ export async function patchPin(id,updatedPin) {
        console.error('Error updating pin status:', error);
    }
 }
+
+// export async function fetchCardsByQuery(query) {
+//   const url = `http://localhost:3001/chats`; // 모든 데이터 가져오기
+
+//   const res = await fetch(url, { cache: "no-store" });
+
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch data");
+//   }
+
+//   const data = await res.json();
+
+//   // query를 기반으로 content 필드 필터링
+//   if (query) {
+//     return data.filter((card) =>
+//       card.content.toLowerCase().includes(query.toLowerCase())
+//     );
+//   }
+
+//   return data; // query가 없으면 모든 데이터 반환
+// }
