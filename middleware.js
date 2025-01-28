@@ -1,12 +1,12 @@
 import {NextResponse} from 'next/server'
 import {cookies} from 'next/headers'
-
-// const protectedRoutes = /^\/chatlist(\/.*)?$/;
+const protectedRoutes = /^\/chatlist(\/.*)?$/;
 const publicRoutes = ['/login', '/signup', '/']
 
 export default async function middleware(req) {
     const path = req.nextUrl.pathname
-    const isProtectedRoute = protectedRoutes.test(path);
+    const isProtectedRoute = false;
+        /*protectedRoutes.test(path);*/
     const isPublicRoute = publicRoutes.includes(path)
 
     const cookie = (await cookies()).get('session')?.value
