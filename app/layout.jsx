@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Theme appearance={"light"} scaling={"0%"}>
           <div className="min-h-screen bg-gray-100">
-            <div className="flex items-center justify-center h-screen bg-beige">
+            <div className="flex items-center justify-center  bg-beige">
               <div className="w-full h-full min-w-[375px] max-w-[475px] max-h-[812px]  bg-white shadow-lg">
                 <Providers>{children} </Providers>
               </div>
