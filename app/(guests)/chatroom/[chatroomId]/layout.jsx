@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Header } from "@/app/ui/Header";
-import SubHeader from "@/app/ui/SubHeader";
+import SubHeader from "@/app/ui/(guest)/chatroom/SubHeader";
 
 export default function GuestChatroomLayout({ children }) {
   const selectOptions = {
@@ -13,10 +13,10 @@ export default function GuestChatroomLayout({ children }) {
   return (
     <>
       <Header />
-      <SubHeader selectOptions={selectOptions} />
+      {/* <SubHeader selectOptions={selectOptions}/> */}
       <div className="h-screen overflow-y-auto ">
         <div className="bg-gray-50 min-h-full">
-          <div className="p-9">{children}</div>
+          <div className="p-4">{children}</div>
         </div>
       </div>
     </>

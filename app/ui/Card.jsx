@@ -14,8 +14,8 @@ export default function Card({card}) {
                 <DropdownMenuDemo id={id}/>
             </div>
 
-            <p className="mb-4">{content}</p>
-            <div className="flex justify-end text-gray-500">
+            <p className="mt-2">{content}</p>
+            <div className="flex justify-end text-gray-500 mt-2">
                 <LikeButton id={id} initialLikes={likes}/>
             </div>
         </div>

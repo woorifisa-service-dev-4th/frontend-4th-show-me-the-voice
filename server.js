@@ -26,7 +26,7 @@ server.get("/chats/sorted", (req, res) => {
     const dbFilePath = path.join(__dirname, "data.json");
     const db = JSON.parse(fs.readFileSync(dbFilePath, "utf-8"));
 
-    let { sort, order } = req.query;
+    let { sort, order, query } = req.query;
 
     // 기본값 설정
     sort = sort || "created_at";
@@ -34,6 +34,13 @@ server.get("/chats/sorted", (req, res) => {
 
     // products 배열 가져오기
     let products = db.products;
+
+
+    if(query) {
+        products = products.filter((product) => 
+            product.content.toLowerCase().includes(query.toLowerCase())
+        );
+    }
 
     // 정렬 로직
     products = products.sort((a, b) => {
@@ -58,6 +65,26 @@ server.get("/chats/sorted", (req, res) => {
 
     res.json(products);
 });
+
+
+// server.get("/chats", (req, res) => {
+//     const dbFilePath = path.join(__dirname, "data.json");
+//     const db = JSON.parse(fs.readFileSync(dbFilePath, "utf-8"));
+
+//     const { id } = req.params;
+//     console.log(id);
+//     const { query } = req.query;
+//     let chats = db.chats.filter((chat) => chat.id.toString() === id);
+
+//     if (query) {
+//         chats = chats.filter((chat) =>
+//             chat.content.toLowerCase().includes(query.toLowerCase())
+//         );
+//     }
+//     res.json(chats);
+// });
+
+
 
 // 기본 CRUD 엔드포인트 처리
 server.use(router);
