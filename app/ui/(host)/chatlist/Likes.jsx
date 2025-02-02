@@ -12,7 +12,6 @@ export default function LikeButton({id, initialLikes}) {
         try {
             let updatedLikes = isLiked ? (likes - 1 > 0) ? likes - 1 : 0 : likes + 1;
             const res = await patchLikes(id, updatedLikes);
-            console.log(res);
             setLikes(res.likes);
             setIsLiked(!isLiked);
         } catch (error) {
