@@ -1,8 +1,8 @@
 import Card from "@/app/ui/Card";
-import {getCardsByOrderOption} from "@/app/lib/data"
+import { fetchChats } from "@/app/lib/db";
 
-export async function CardWrapper() {
-    const cards = await getCardsByOrderOption('popular');
+export async function CardWrapper({chatroomId}) {
+    const cards = await fetchChats(Number(chatroomId));
     return (
         <div>
             {cards.map((card) => (
