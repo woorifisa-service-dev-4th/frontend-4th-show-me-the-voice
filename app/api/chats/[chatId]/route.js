@@ -1,3 +1,6 @@
+import { deleteChat } from "@/app/lib/db";
+import { NextResponse } from "next/server";
+
 export async function DELETE(req, { params }) {
     try {
         const result = await deleteChat(Number(params.chatId));

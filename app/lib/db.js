@@ -16,7 +16,7 @@ export async function fetchChatrooms() {
 export async function fetchChats(chatroomId) {
     try {
         const data = await sql`
-      SELECT * FROM chats WHERE chatroom_id = ${chatroomId} ORDER BY id ASC
+      SELECT * FROM chats WHERE chatroom_id = ${chatroomId} ORDER BY pinned DESC, created_time DESC;
     `;
         return data.rows;
     } catch (error) {
