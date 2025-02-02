@@ -24,7 +24,7 @@ export async function getCardsByOrderOption(options, query){
     return data; // query 없으면 정렬된 전체 데이터 반환
 }
 export async function deleteCard(id) {
-    const res = await fetch(`http://localhost:3001/chats/${id}`, {
+    const res = await fetch(`http://localhost:3000/api/chats/${id}`, {
         method: "DELETE", // DELETE 메서드를 사용하여 삭제 요청
     });
 
@@ -60,14 +60,13 @@ export async function patchLikes (id,updatedLikes) {
     }
 }
 
-export async function patchPin(id,updatedPin) {
+export async function patchPin(id) {
    try{
-       await fetch(`http://localhost:3001/chats/${id}`, {
+       await fetch(`http://localhost:3000/api/chats/${id}/pin`, {
            method:'PATCH',
            headers: {
                'Content-Type': 'application/json',
            },
-           body: JSON.stringify(updatedPin),
        })
    }catch (error) {
        console.error('Error updating pin status:', error);

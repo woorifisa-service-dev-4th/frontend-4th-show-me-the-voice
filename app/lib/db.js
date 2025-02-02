@@ -45,11 +45,11 @@ export async function addChat(chatroomId, username, content) {
 }
 
 // 특정 채팅을 핀 고정
-export async function pinChat(chatId, pinned) {
+export async function pinChat(chatId) {
     try {
         await sql`
             UPDATE chats
-            SET pinned = ${pinned}
+            SET pinned = NOT pinned
             WHERE id = ${chatId}
         `;
         return {success: true};

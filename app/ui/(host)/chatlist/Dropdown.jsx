@@ -76,7 +76,6 @@ export const DropdownMenuDemo = ({ id }) => {
                         </svg>
                         &nbsp; &nbsp;
                         Delete{" "}
-
                     </DropdownMenu.Item>
                     <DropdownMenu.Arrow className="fill-white" />
                 </DropdownMenu.Content>
