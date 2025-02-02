@@ -3,13 +3,11 @@
 import React, { useState } from 'react';
 import SelectDemo from '../../(host)/chatlist/Select';
 import { useRouter } from 'next/navigation';
+import Search from './Search';
+
 
 
 export default function SubHeader({ chatroomId}) {
-
-  const router = useRouter();
-
-  const [searchQuery, setSearchQuery] = useState('');
 
   const selectOptions = {
     default: "Default",
@@ -23,16 +21,6 @@ export default function SubHeader({ chatroomId}) {
   }));
 
   const defaultValue = optionsArray[0].value;
-
-
-  const handleSearch = (e) => {
-    const query = e.target.value;
-    setSearchQuery(query);
-
-    const encodedQuery = encodeURIComponent(query);
-    router.push(`?query=${encodedQuery}`);
-  };
-
 
 
   return (
@@ -55,13 +43,7 @@ export default function SubHeader({ chatroomId}) {
           </svg>
         </button>
         <div className="relative">
-          <input
-            type="text"
-            placeholder="Search contacts"
-            value={searchQuery}
-            onChange={handleSearch}
-            className="px-4 py-2 text-sm bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          <Search placeholder="검색어를 입력하세요"></Search>
         </div>
       </div>
 
