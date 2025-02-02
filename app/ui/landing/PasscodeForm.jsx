@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link'
 import { useState } from "react";
 import { useRouter } from "next/navigation"; // Next.js의 useRouter 훅 가져오기
 
@@ -48,10 +49,7 @@ export default function PasscodeForm() {
 
       {/* 비밀번호 입력 필드 */}
       {showPasswordInput && (
-        <form
-          onSubmit={handlePasswordSubmit}
-          className="flex flex-col space-y-4"
-        >
+          <form className="flex flex-col space-y-4">
           <input
             type="password"
             value={password}
@@ -59,12 +57,12 @@ export default function PasscodeForm() {
             placeholder="Enter Room Password"
             className="p-3 border rounded-md w-64"
           />
-          <button
-            type="submit"
-            className="bg-white text-sub_color p-3 rounded-md hover:bg-sub_color hover:text-white"
+          <Link
+            href="/chatroom/1"
+            className="bg-white text-sub_color p-3 rounded-md hover:bg-sub_color hover:text-white text-center"
           >
             비밀번호 입력
-          </button>
+          </Link>
         </form>
       )}
     </div>
