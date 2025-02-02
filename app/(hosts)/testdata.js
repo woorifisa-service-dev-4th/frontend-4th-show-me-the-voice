@@ -20,3 +20,26 @@ export async function fetchHostChatroomData() {
 export function fetchHostChatData() {
     return hostChatCards;
 }
+
+export function addHostChatroomData(formData) {
+    const {
+        roomName,
+        startDate,
+        endDate,
+        password
+    } = formData;
+
+    const newData = {
+        id: hostChatroomCards.length,
+        roomName,
+        code: (hostChatroomCards.length + 1) * 1111,
+        startDate,
+        endDate,
+        password
+    }
+
+    hostChatroomCards.push(newData);
+    console.log(hostChatroomCards);
+    
+    return hostChatroomCards;
+}
