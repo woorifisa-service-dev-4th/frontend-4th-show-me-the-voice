@@ -1,10 +1,12 @@
-import { sql } from "@vercel/postgres";
+import {sql} from "@vercel/postgres";
 import "dotenv/config";  // 환경 변수 로드
 
 // 채팅방 목록 가져오기
 export async function fetchChatrooms() {
     try {
-        const data = await sql`SELECT * FROM chatrooms ORDER BY created_date DESC`;
+        const data = await sql`SELECT *
+                               FROM chatrooms
+                               ORDER BY created_date DESC`;
         return data.rows;
     } catch (error) {
         console.error("Database Error:", error);
@@ -16,8 +18,11 @@ export async function fetchChatrooms() {
 export async function fetchChats(chatroomId) {
     try {
         const data = await sql`
-      SELECT * FROM chats WHERE chatroom_id = ${chatroomId} ORDER BY pinned DESC, created_time DESC;
-    `;
+            SELECT *
+            FROM chats
+            WHERE chatroom_id = ${chatroomId}
+            ORDER BY pinned DESC, created_time DESC;
+        `;
         return data.rows;
     } catch (error) {
         console.error("Database Error:", error);
@@ -29,10 +34,9 @@ export async function fetchChats(chatroomId) {
 export async function addChat(chatroomId, username, content) {
     try {
         const result = await sql`
-      INSERT INTO chats (chatroom_id, username, content, likes, pinned)
-      VALUES (${chatroomId}, ${username}, ${content}, 0, FALSE)
-      RETURNING *;
-    `;
+            INSERT INTO chats (chatroom_id, username, content, likes, pinned)
+            VALUES (${chatroomId}, ${username}, ${content}, 0, FALSE) RETURNING *;
+        `;
         return result.rows[0];
     } catch (error) {
         console.error("Database Error:", error);
@@ -44,33 +48,41 @@ export async function addChat(chatroomId, username, content) {
 export async function pinChat(chatId, pinned) {
     try {
         await sql`
-      UPDATE chats SET pinned = ${pinned} WHERE id = ${chatId}
-    `;
-        return { success: true };
+            UPDATE chats
+            SET pinned = ${pinned}
+            WHERE id = ${chatId}
+        `;
+        return {success: true};
     } catch (error) {
         console.error("Database Error:", error);
         throw new Error("Failed to update pinned status.");
     }
 }
 
-// 좋아요 증가
-export async function likeChat(chatId) {
+export async function likeChat(chatId, newLikes) {
+    console.log(newLikes);
     try {
-        await sql`
-      UPDATE chats SET likes = likes + 1 WHERE id = ${chatId}
-    `;
-        return { success: true };
+        const result = await sql`
+                UPDATE chats
+                SET likes = ${newLikes}
+                WHERE id = ${chatId} 
+                    RETURNING likes;
+            `;
+        return {success: true, likes: result.rows[0].likes};
     } catch (error) {
         console.error("Database Error:", error);
         throw new Error("Failed to like chat.");
     }
 }
+
 export async function deleteChatroom(chatroomId) {
     try {
         await sql`
-            DELETE FROM chatrooms WHERE id = ${chatroomId}
+            DELETE
+            FROM chatrooms
+            WHERE id = ${chatroomId}
         `;
-        return { success: true };
+        return {success: true};
     } catch (error) {
         console.error("Database Error:", error);
         throw new Error("Failed to delete chatroom.");
@@ -80,9 +92,11 @@ export async function deleteChatroom(chatroomId) {
 export async function deleteChat(chatId) {
     try {
         await sql`
-            DELETE FROM chats WHERE id = ${chatId}
+            DELETE
+            FROM chats
+            WHERE id = ${chatId}
         `;
-        return { success: true };
+        return {success: true};
     } catch (error) {
         console.error("Database Error:", error);
         throw new Error("Failed to delete chat.");

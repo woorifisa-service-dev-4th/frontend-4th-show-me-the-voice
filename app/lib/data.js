@@ -47,17 +47,18 @@ export async function getCardById(id) {
 export async function patchLikes (id,updatedLikes) {
     try {
         // 좋아요 수를 서버에 업데이트
-        await fetch(`http://localhost:3001/chats/${id}`, {
+        const result = await fetch(`http://localhost:3000/api/chats/${id}/like`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({likes: updatedLikes}),
         });
+        return result.json();
     } catch (error) {
         console.error("Failed to toggle like:", error);
     }
-};
+}
 
 export async function patchPin(id,updatedPin) {
    try{
