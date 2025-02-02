@@ -1,6 +1,6 @@
 
 import React, {Suspense} from "react";
-import { CardWrapper } from '@/app/ui/(guest)/chatroom/Cards';
+import  CardWrapper  from '@/app/ui/(guest)/chatroom/Cards';
 import { SkeletonLoader } from '@/app/ui/skeletons';
 
 

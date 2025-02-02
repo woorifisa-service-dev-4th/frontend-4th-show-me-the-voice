@@ -1,7 +1,8 @@
-import DropdownMenuDemo from "@/app/ui/(host)/chatlist/Dropdown";
-import LikeButton from "@/app/ui/(host)/chatlist/Likes";
 
-export default function Card({card}) {
+import LikeButton from "@/app/ui/(host)/chatlist/Likes";
+import DropdownMenuDemo from "./Dropdown";
+
+export default function Card({card, onRefresh}) {
     const {id, pinned, content, username, likes} = card;
 
     return (
@@ -11,7 +12,7 @@ export default function Card({card}) {
             <div className={"flex justify-between"}>
 
                 <h2 className="font-bold mb-2">{username}</h2>
-                <DropdownMenuDemo id={id}/>
+                <DropdownMenuDemo id={id} onRefresh={onRefresh}/>
             </div>
 
             <p className="mt-2">{content}</p>

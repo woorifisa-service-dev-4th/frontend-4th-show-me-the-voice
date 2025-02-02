@@ -1,4 +1,4 @@
-import { deleteChat } from "@/app/lib/db";
+import { deleteChat, fetchFilteredChats } from "@/app/lib/db";
 import { NextResponse } from "next/server";
 
 export async function DELETE(req, { params }) {

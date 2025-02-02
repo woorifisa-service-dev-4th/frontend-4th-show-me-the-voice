@@ -1,4 +1,4 @@
-import {sql} from "@vercel/postgres";
+import { sql } from "@vercel/postgres";
 import "dotenv/config";  // 환경 변수 로드
 
 // 채팅방 목록 가져오기
@@ -52,7 +52,7 @@ export async function pinChat(chatId) {
             SET pinned = NOT pinned
             WHERE id = ${chatId}
         `;
-        return {success: true};
+        return { success: true };
     } catch (error) {
         console.error("Database Error:", error);
         throw new Error("Failed to update pinned status.");
@@ -68,7 +68,7 @@ export async function likeChat(chatId, newLikes) {
                 WHERE id = ${chatId} 
                     RETURNING likes;
             `;
-        return {success: true, likes: result.rows[0].likes};
+        return { success: true, likes: result.rows[0].likes };
     } catch (error) {
         console.error("Database Error:", error);
         throw new Error("Failed to like chat.");
@@ -82,7 +82,7 @@ export async function deleteChatroom(chatroomId) {
             FROM chatrooms
             WHERE id = ${chatroomId}
         `;
-        return {success: true};
+        return { success: true };
     } catch (error) {
         console.error("Database Error:", error);
         throw new Error("Failed to delete chatroom.");
@@ -96,9 +96,40 @@ export async function deleteChat(chatId) {
             FROM chats
             WHERE id = ${chatId}
         `;
-        return {success: true};
+        return { success: true };
     } catch (error) {
         console.error("Database Error:", error);
         throw new Error("Failed to delete chat.");
+    }
+}
+
+// 검색어에 따른 채팅 필터링
+export async function fetchFilteredChats(chatroomId, query = '') {
+    try {
+        let sqlQuery;
+        if (!query) {
+            sqlQuery = await sql`
+                SELECT id, chatroom_id, username, content, likes, pinned, created_time
+                FROM chats
+                WHERE chatroom_id = ${chatroomId}
+                ORDER BY pinned DESC, created_time DESC
+            `;
+        } else {
+            sqlQuery = await sql`
+                SELECT id, chatroom_id, username, content, likes, pinned, created_time
+                FROM chats
+                WHERE chatroom_id = ${chatroomId}
+                AND (
+                    content ILIKE ${`%${query}%`} OR  -- 대소문자 구분 없이 content 검색
+                    username ILIKE ${`%${query}%`}    -- 대소문자 구분 없이 username 검색
+                )
+                ORDER BY pinned DESC, created_time DESC
+            `;
+        }
+
+        return sqlQuery.rows;
+    } catch (error) {
+        console.error("Database Error:", error);
+        throw new Error("Failed to fetch filtered chats.");
     }
 }
