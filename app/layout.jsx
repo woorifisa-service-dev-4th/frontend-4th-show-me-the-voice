@@ -13,13 +13,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+
+
     <html lang="ko">
       <body className={inter.className}>
         <Theme appearance={"light"} scaling={"0%"}>
           <div className="min-h-screen bg-gray-100">
-            <div className="flex items-center justify-center  bg-beige">
-              <div className="w-full h-full min-w-[375px] max-w-[475px] max-h-[812px]  bg-white shadow-lg">
-                <Providers>{children} </Providers>
+            <div className="flex items-center justify-center bg-beige">
+              <div className="relative w-full h-full  min-w-[375px] max-w-[475px]  min-h-[768px] max-h-[1080px] bg-white shadow-lg">
+                <Providers>{children}</Providers>
               </div>
             </div>
           </div>
