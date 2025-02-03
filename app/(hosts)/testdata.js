@@ -1,4 +1,4 @@
-const hostChatroomCards = Array.from({ length: 5 }, (_, i) => ({
+const hostChatroomCards = Array.from({ length: 7 }, (_, i) => ({
     id: i,
     roomName: `room ${i + 1}`,
     code: (i + 1) * 1111,
@@ -40,6 +40,6 @@ export function addHostChatroomData(formData) {
 
     hostChatroomCards.push(newData);
     console.log(hostChatroomCards);
-    
+
     return hostChatroomCards;
 }
