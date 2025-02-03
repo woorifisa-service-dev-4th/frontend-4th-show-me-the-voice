@@ -1,12 +1,14 @@
 "use client";
+
+import Image from "next/image";
 import { useState } from "react";
 import { useSwipeable } from "react-swipeable"; // 스와이프 기능 추가
 import LoginForm from "./ui/landing/LoginForm";
 import PasscodeForm from "./ui/landing/PasscodeForm";
-import Modal from "./ui/Modal";
+import localIcon from "../public/images/logo.png";
 
 export default function Home() {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   // 스와이프 이벤트 핸들러
   const handlers = useSwipeable({
@@ -19,32 +21,34 @@ export default function Home() {
   return (
     <div
       {...handlers} // 스와이프 이벤트 바인딩
-      className="min-h-screen flex flex-col items-center justify-center pt-20 bg-gradient-to-r from-blue-200 via-blue-300 to-blue-400"
+      className="min-h-screen flex flex-col items-center justify-center pt-14 bg-gradient-to-r from-blue-200 via-blue-300 to-blue-400"
     >
-      <div></div>
-      <main className="flex flex-col items-center space-y-10">
-        <div className="absolute top-10 left-0 right-0 p-4 text-center">
-          <h1 className="text-3xl font-bold text-white">Slido</h1>
+      <main className="flex flex-col justify-between items-center w-full h-screen py-10">
+        {/* 상단 로고 */}
+        <div className="text-center my-2">
+          {" "}
+          {/* 여백 조정 */}
+          <Image src={localIcon} alt="Logo" width={150} height={50} />
         </div>
 
-        <div>
-          {/* 상태에 따라 LoginForm 또는 PasscodeForm 표시 */}
-          {!isLogin ? <LoginForm /> : <PasscodeForm />}
+        {/* 상태에 따라 LoginForm 또는 PasscodeForm 표시 */}
+        <div className="flex-1 flex items-center justify-center w-full">
+          {isLogin ? <LoginForm /> : <PasscodeForm />}
         </div>
 
         {/* 하단 화살표 스와이프 유도 메시지 */}
-        <div className="absolute bottom-10 text-center text-gray-600 animate-bounce text-white">
-          {isLogin ? (
-            <>
-              <p>미팅을 열고 싶으신가요?</p>
-              <p>왼쪽으로 스와이프하세요 →</p>
-            </>
-          ) : (
-            <>
-              <p>미팅에 참여하고 싶으신가요?</p>
-              <p>← 오른쪽으로 스와이프하세요</p>
-            </>
-          )}
+        <div className="text-center text-white animate-bounce my-10">
+          {/* 여백 조정 */}
+          <p>
+            {!isLogin
+              ? "미팅을 열고 싶으신가요?"
+              : "미팅에 참여하고 싶으신가요?"}
+          </p>
+          <p>
+            {isLogin
+              ? "왼쪽으로 스와이프하세요 →"
+              : "← 오른쪽으로 스와이프하세요"}
+          </p>
         </div>
       </main>
     </div>
