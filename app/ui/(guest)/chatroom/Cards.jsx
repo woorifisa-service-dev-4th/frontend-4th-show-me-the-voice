@@ -33,19 +33,21 @@ export default function CardWrapper({ chatroomId }) {
 
     return (
         <>
-            <div className="relative flex flex-col h-full pb-[60px]">
+            <div className="flex flex-col h-screen">
                 <SubHeader />
                 <div className="flex-1 overflow-y-auto p-2 bg-gray-100">
                     {cards.map((card) => (
                         <Card key={card.id} card={card} onRefresh={fetchData} />
                     ))}
                 </div>
-                <ChatInput
-                    chatroomId={chatroomId}
-                    onRefresh={fetchData}
-                    className="absolute bottom-0 left-0 w-full bg-white p-2 shadow-md z-10"
-                />
+                <div className="fixed bottom-0 w-full max-w-[475px] mx-auto left-1/2 transform -translate-x-1/2 bg-white shadow-md z-1000">
+                    <ChatInput
+                        chatroomId={chatroomId}
+                        onRefresh={fetchData}
+                    />
+                </div>
             </div>
+
         </>
 
     );
