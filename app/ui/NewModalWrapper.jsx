@@ -8,9 +8,11 @@ export default function NewModalWrapper() {
   return (
     <NewModal>
       <NewModal.Open>
-        <button className="p-4 bg-primary text-primary-foreground rounded-full shadow-lg hover:bg-primary/90 bg-blue-400">
-          <Plus className="w-6 h-6" color="#ffffff" />
-        </button>
+        <div className="flex justify-end">
+          <button className="fixed bottom-7 z-30 p-4 bg-primary text-primary-foreground rounded-full shadow-lg hover:bg-primary/90 bg-blue-400">
+            <Plus className="w-6 h-6" color="#ffffff" />
+          </button>
+        </div>
       </NewModal.Open>
       <NewModal.Dialog>
         <ChatlistForm />
