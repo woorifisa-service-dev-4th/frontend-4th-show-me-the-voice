@@ -65,7 +65,7 @@ export async function likeChat(chatId, newLikes) {
         const result = await sql`
                 UPDATE chats
                 SET likes = ${newLikes}
-                WHERE id = ${chatId} 
+                WHERE id = ${chatId}
                     RETURNING likes;
             `;
         return { success: true, likes: result.rows[0].likes };

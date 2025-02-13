@@ -5,7 +5,7 @@
       "username": "user1",
       "content": "Next.js 13에서 'app' 디렉토리를 사용하는 장점은 무엇인가요?",
       "likes": 5,
-      "created_date": "2025-01-20T17:00:00Z",
+      "created_date": "2025-01-20T17:08:00Z",
       "is_pinned": false,
       "pinned_at": null
     },
@@ -14,7 +14,7 @@
       "username": "user2",
       "content": "Next.js 13에서 페이지 라우팅이 더 쉬워지는 이유는?",
       "likes": 10,
-      "created_date": "2025-01-20T17:00:00Z",
+      "created_date": "2025-01-20T17:07:00Z",
       "is_pinned": true,
       "pinned_at": "2025-01-28T03:27:15.011Z"
     },
@@ -23,7 +23,7 @@
       "username": "user3",
       "content": "Next.js에서 API 라우트를 간단하게 설정하는 방법은?",
       "likes": 15,
-      "created_date": "2025-01-20T17:00:00Z",
+      "created_date": "2025-01-20T17:06:00Z",
       "is_pinned": true,
       "pinned_at": "2025-01-28T03:02:57.288Z"
     },
@@ -32,7 +32,7 @@
       "username": "user4",
       "content": "Next.js 13의 SSR과 CSR 차이점은 무엇인가요?",
       "likes": 20,
-      "created_date": "2025-01-20T17:00:00Z",
+      "created_date": "2025-01-20T17:05:00Z",
       "is_pinned": false,
       "pinned_at": null
     },
@@ -41,7 +41,7 @@
       "username": "user5",
       "content": "Next.js 13에서 'app' 디렉토리를 활용한 새로운 기능은?",
       "likes": 25,
-      "created_date": "2025-01-20T17:00:00Z",
+      "created_date": "2025-01-20T17:04:00Z",
       "is_pinned": false,
       "pinned_at": null
     },

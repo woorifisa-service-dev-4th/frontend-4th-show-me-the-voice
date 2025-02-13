@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --header-green: #e8f3e8;
+  --message-green: #e8f3e8;
+  --message-gray: #f1f1f1;
+}
+
 html,
 body {
   height: 100%;
@@ -26,3 +32,19 @@ body {
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
+
+.chat-bubble {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  word-break: break-word;
+}
+
+.chat-bubble-gray {
+  background-color: var(--message-gray);
+}
+
+.chat-bubble-green {
+  background-color: var(--message-green);
+}
+

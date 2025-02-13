@@ -21,7 +21,7 @@ export default function ChatInput({ chatroomId, onRefresh }) {
                 },
                 body: JSON.stringify({
                     chatroomId: Number(chatroomId),
-                    username : 'user'+crypto.randomUUID().replace(/-/g, ''),
+                    username: 'user' + crypto.randomUUID().replace(/-/g, ''),
                     content: message,
                 }),
             });
@@ -32,7 +32,7 @@ export default function ChatInput({ chatroomId, onRefresh }) {
 
             setMessage('');
             router.refresh(); // 채팅 목록 갱신
-            if(onRefresh) {
+            if (onRefresh) {
                 onRefresh();
             }
         } catch (error) {
@@ -43,21 +43,33 @@ export default function ChatInput({ chatroomId, onRefresh }) {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="flex gap-2 p-4 border-t">
-            <input
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                className="flex-1 px-4 py-2 border rounded"
-                placeholder="메시지를 입력하세요.."
-                disabled={isLoading}
-            />
-            <button
-                type="submit"
-                className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-400"
-                disabled={isLoading}
-            >
-                {isLoading ? 'Sending...' : 'Send'}
-            </button>
+        <form onSubmit={handleSubmit} className="p-4 border-t">
+            <div className="flex gap-4">
+                <input
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="flex-1 px-3 py-2 border rounded-full text-sm focus:outline-none"
+                    placeholder="메시지를 입력하세요.."
+                    disabled={isLoading}
+                />
+                <button
+                    type="submit"
+                    className="p-3 rounded-md bg-green-500 text-white"
+                    disabled={isLoading}
+                >
+                    {isLoading ? 'Sending...' : 'Send'}
+                    <svg
+                        viewBox="0 0 24 24"
+                        className="w-4 h-4 rotate-90 transform"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
+                        <path d="M12 19V5M5 12l7-7 7 7" />
+                    </svg>
+                </button>
+            </div>
+            <div className="mt-2 text-sm text-green-600">User4 에게 답장하는중...</div>
         </form>
     );
 }
