@@ -40,7 +40,7 @@ export default function PasscodeForm() {
         {!showPasswordInput && (
           <button
             type="submit"
-            className="bg-white text-sub_color p-3 rounded-md hover:bg-sub_color hover:text-white"
+            className="bg-button_color text-sub_color p-3 rounded-md hover:bg-sub_color hover:text-white"
           >
             코드 입력
           </button>
@@ -59,7 +59,7 @@ export default function PasscodeForm() {
           />
           <Link
             href="/chatroom/1"
-            className="bg-white text-sub_color p-3 rounded-md hover:bg-sub_color hover:text-white text-center"
+            className="bg-button_color text-sub_color p-3 rounded-md hover:bg-sub_color hover:text-white text-center"
           >
             비밀번호 입력
           </Link>

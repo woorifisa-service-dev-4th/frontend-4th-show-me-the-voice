@@ -1,16 +1,21 @@
-import { User } from "lucide-react"
-import Image from "next/image"
+import { ChevronDown } from "lucide-react"
+
 
 export function Header() {
-    return (
-        <header className="flex justify-between items-center p-4 bg-gradient-to-r from-blue-200 via-blue-300 to-blue-400 text-white">
-            <div className="flex items-center space-x-2">
-                <Image src="/logo.png" width={100} height={100} alt="logo" />
-            </div>
-            <nav className="flex space-x-4">
-                <User size={24} />
-            </nav>
-        </header>
-    )
+  return (
+    <header className="flex justify-between items-center px-4 py-2 bg-[#E8F3E8]">
+      <div className="flex items-center gap-2">
+        <img
+           src="/logo.png"
+           alt="Logo"
+           className="w-14 h-14"
+        />
+      </div>
+      <button className="flex items-center gap-1 text-sm">
+        유정호
+        <ChevronDown className="w-4 h-4" />
+      </button>
+    </header>
+  )
 }
 

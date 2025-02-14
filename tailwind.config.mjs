@@ -16,9 +16,9 @@ export default {
         serif: ["Noto Serif KR", "serif"],
       },
       colors: {
-        main_color: "rgb(0, 103, 172)",
-        sub_color: "rgb(32, 96, 244)",
-        button_color: "rgb(0, 120, 185)",
+        main_color: "#e8f3e8",
+        sub_color: "#e8f3e8",
+        button_color: "#22c55e",
         ...blackA,
         ...mauve,
         ...violet,

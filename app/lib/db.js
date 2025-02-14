@@ -6,7 +6,7 @@ export async function fetchChatrooms() {
     try {
         const data = await sql`SELECT *
                                FROM chatrooms
-                               ORDER BY created_date DESC`;
+                               ORDER BY created_time DESC`;
         return data.rows;
     } catch (error) {
         console.error("Database Error:", error);
@@ -65,7 +65,7 @@ export async function likeChat(chatId, newLikes) {
         const result = await sql`
                 UPDATE chats
                 SET likes = ${newLikes}
-                WHERE id = ${chatId} 
+                WHERE id = ${chatId}
                     RETURNING likes;
             `;
         return { success: true, likes: result.rows[0].likes };

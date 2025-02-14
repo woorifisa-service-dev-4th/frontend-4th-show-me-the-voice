@@ -48,14 +48,14 @@ export default function LoginForm() {
       {/* 폼이 제출되었을 때만 링크 이동 */}
       {formSubmitted ? (
         <Link href="/chatlist">
-          <div className="bg-sub_color text-white p-3 rounded-md hover:bg-sub_color text-center">
+          <div className="bg-button_color text-white p-3 rounded-md hover:bg-sub_color text-center">
             미팅 열기
           </div>
         </Link>
       ) : (
         <button
           type="submit"
-          className="bg-sub_color text-white p-3 rounded-md hover:bg-sub_color text-center"
+          className="bg-button_color text-white p-3 rounded-md hover:bg-sub_color text-center"
         >
           미팅 열기
         </button>

@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <div
       {...handlers} // 스와이프 이벤트 바인딩
-      className="min-h-screen flex flex-col items-center justify-center pt-14 bg-gradient-to-r from-blue-200 via-blue-300 to-blue-400"
+      className="min-h-screen flex flex-col items-center justify-center pt-14 bg-gradient-to-r from-green-100 via-green-200 to-green-300"
     >
       <main className="flex flex-col justify-between items-center w-full h-screen py-10">
         {/* 상단 로고 */}
