@@ -3,7 +3,7 @@ import LikeButton from "@/app/ui/(host)/chatlist/Likes";
 import DropdownMenuDemo from "./Dropdown";
 
 export default function Card({ card, onRefresh }) {
-    const { id, pinned, content, username, likes, created_date } = card;
+    const { id, pinned, content, username, likes, created_time } = card;
 
     return (
         <div className="gap-2">
@@ -16,7 +16,7 @@ export default function Card({ card, onRefresh }) {
                 <p className="mt-2">{content}</p>
                 <div className="flex justify-between">
                     <div className="text-xs text-gray-500 mt-3">
-                        {new Date(created_date).toLocaleString()}
+                        {new Date(created_time).toLocaleString()}
                     </div>
                     <div className="mt-2 flex flex-end">
                         <LikeButton id={id} initialLikes={likes} />

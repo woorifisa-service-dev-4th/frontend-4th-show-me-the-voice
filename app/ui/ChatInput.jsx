@@ -54,7 +54,7 @@ export default function ChatInput({ chatroomId, onRefresh }) {
                 />
                 <button
                     type="submit"
-                    className="p-3 rounded-md bg-green-500 text-white"
+                    className="p-3 rounded-md highlight-green text-white"
                     disabled={isLoading}
                 >
                     {isLoading ? 'Sending...' : 'Send'}

@@ -6,7 +6,7 @@ export async function fetchChatrooms() {
     try {
         const data = await sql`SELECT *
                                FROM chatrooms
-                               ORDER BY created_date DESC`;
+                               ORDER BY created_time DESC`;
         return data.rows;
     } catch (error) {
         console.error("Database Error:", error);

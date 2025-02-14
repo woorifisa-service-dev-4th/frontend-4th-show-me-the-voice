@@ -6,6 +6,7 @@
   --header-green: #e8f3e8;
   --message-green: #e8f3e8;
   --message-gray: #f1f1f1;
+  --highlight-green : #22c55e;
 }
 
 html,
@@ -46,5 +47,9 @@ body {
 
 .chat-bubble-green {
   background-color: var(--message-green);
+}
+
+.highlight-green {
+  background-color: var(--highlight-green);
 }
 

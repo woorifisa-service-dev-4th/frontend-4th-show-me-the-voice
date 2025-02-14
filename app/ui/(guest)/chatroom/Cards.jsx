@@ -1,7 +1,5 @@
 'use client';
 
-import { fetchChats, fetchFilteredChats } from "@/app/lib/db";
-
 import Card from "../../Card";
 import SubHeader from "./SubHeader";
 import { useSearchParams } from "next/navigation";

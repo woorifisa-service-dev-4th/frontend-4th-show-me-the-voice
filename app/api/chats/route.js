@@ -7,7 +7,7 @@ export async function GET(request) {
     const query = searchParams.get('query');
 
     try {
-        const chats = !query || query === 'null' || query === '' 
+        const chats = !query || query === 'null' || query === ''
            ? await fetchChats(Number(chatroomId))
            : await fetchFilteredChats(Number(chatroomId), query);
         return NextResponse.json(chats);
